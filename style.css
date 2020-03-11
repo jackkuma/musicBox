@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: #222;
+  border: 5px solid rgba(255, 255, 255, 0.03);
+  box-sizing: border-box;
+  color: #fff;
+  margin: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+html:active, body:active {
+  -webkit-transition: 0;
+  transition: 0;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.infos {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+.infos h1, .infos h5, .infos h3 {
+  margin: 5px 0;
+}
+.infos h5 {
+  font-weight: 300;
+}
+.infos h1 {
+  font-weight: 800;
+}
+.infos h3 {
+  font-weight: 400;
+  margin-top: 20px;
+  color: #ffe311;
+}
+
+.blocks {
+  color: #fff;
+}
+.blocks .row {
+  display: -webkit-box;
+  display: flex;
+}
+.blocks .block {
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  border: 1px solid #fff;
+  cursor: pointer;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  margin: 12px;
+}
+.blocks .block.block1 {
+  box-shadow: 0 0 20px rgba(214, 52, 71, 0.1);
+  background-color: transparent;
+  border: 1px solid #db4d5e;
+}
+.blocks .block.block1:hover {
+  background-color: rgba(214, 52, 71, 0.3);
+  box-shadow: 0 0 30px rgba(214, 52, 71, 0.2);
+}
+.blocks .block.block1:active, .blocks .block.block1.active {
+  background-color: #d63447;
+  box-shadow: 0 0 35px #d63447;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+.blocks .block.block2 {
+  box-shadow: 0 0 20px rgba(255, 227, 17, 0.1);
+  background-color: transparent;
+  border: 1px solid #ffe730;
+}
+.blocks .block.block2:hover {
+  background-color: rgba(255, 227, 17, 0.3);
+  box-shadow: 0 0 30px rgba(255, 227, 17, 0.2);
+}
+.blocks .block.block2:active, .blocks .block.block2.active {
+  background-color: #ffe311;
+  box-shadow: 0 0 35px #ffe311;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+.blocks .block.block3 {
+  box-shadow: 0 0 20px rgba(0, 150, 237, 0.1);
+  background-color: transparent;
+  border: 1px solid #0da6ff;
+}
+.blocks .block.block3:hover {
+  background-color: rgba(0, 150, 237, 0.3);
+  box-shadow: 0 0 30px rgba(0, 150, 237, 0.2);
+}
+.blocks .block.block3:active, .blocks .block.block3.active {
+  background-color: #0096ed;
+  box-shadow: 0 0 35px #0096ed;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+.blocks .block.block4 {
+  box-shadow: 0 0 20px rgba(17, 255, 17, 0.1);
+  background-color: transparent;
+  border: 1px solid #30ff30;
+}
+.blocks .block.block4:hover {
+  background-color: rgba(17, 255, 17, 0.3);
+  box-shadow: 0 0 30px rgba(17, 255, 17, 0.2);
+}
+.blocks .block.block4:active, .blocks .block.block4.active {
+  background-color: #11ff11;
+  box-shadow: 0 0 35px #11ff11;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.inputStatus {
+  margin-top: 10px;
+  position: relative;
+}
+.inputStatus .circle {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 5px;
+  border-radius: 50%;
+}
+.inputStatus .circle.correct {
+  background-color: white;
+}
+.inputStatus.correct .circle {
+  background-color: #0096ed;
+}
+.inputStatus.wrong .circle {
+  background-color: #d63447;
+}
