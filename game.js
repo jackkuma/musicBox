@@ -59,7 +59,6 @@ Blocks.prototype.getAudioObject = function(pitch) {
 }
 Blocks.prototype.playSet = function(type) {
   let sets = this.soundSets.find( set => set.name == type ).sets
-  //console.log(sets)
   sets.forEach((obj) => {
     obj.currentTime = 0
     obj.play()
@@ -74,11 +73,16 @@ const Game = function() {
   this.mode = "Waiting"
 }
 //遊戲關卡設定
-//本地模式
-Game.prototype.startLevel = function() {
-  let leveldata = this.levels[this.currentLevel]
-  this.startGame(leveldata)
-  this.showMessage("Level " + this.currentLevel)
+//AJAX載入
+Game.prototype.loadLevels = function() {
+  let _this = this
+  const url = "https://2017.awiclass.monoame.com/api/demo/memorygame/leveldata"
+  $.ajax({
+    url: url,
+    success: function(res) {
+      _this.levels = res
+    }
+  })
 }
 //顯示目前關卡
 Game.prototype.showMessage = function(msg) {
@@ -92,10 +96,8 @@ Game.prototype.startGame = function(answer) {
   this.showStatus("")
   this.timer = setInterval(() => {
     let char = notes.shift()
-    //console.log(char)
     this.playNote(char)
     if(!notes.length) {
-      //console.log('audio play end')
       this.startUserInput()
       clearInterval(this.timer)
     }
@@ -103,7 +105,6 @@ Game.prototype.startGame = function(answer) {
 }
 //出題播放
 Game.prototype.playNote = function(note) {
-  //console.log(note)
   this.blocks.flash(note)
 }
 //使用者解答
@@ -117,9 +118,7 @@ Game.prototype.userSendInput = function(inputChar) {
     this.playNote(inputChar)
     this.showStatus(tempString)
     if(this.answer.indexOf(tempString) == 0) {
-      //console.log("good Job!")
       if(this.answer == tempString) {
-        //console.log("correct")
         this.showMessage("Correct")
         this.currentLevel += 1
         this.mode = "Waiting"
@@ -128,7 +127,6 @@ Game.prototype.userSendInput = function(inputChar) {
         },1000)
       }
     } else {
-      //console.log("wrong")
       this.showMessage("Wrong")
       this.currentLevel = 0
       this.mode = "Waiting"
@@ -136,7 +134,6 @@ Game.prototype.userSendInput = function(inputChar) {
         this.startLevel()
       },2000)
     }
-    //console.log(tempString)
     this.userInput += inputChar
   }
 }
@@ -166,7 +163,6 @@ Game.prototype.showStatus = function(tempString) {
   if(this.answer.indexOf(tempString) != 0) {
     $(".inputStatus").addClass("wrong")
     setTimeout(() => {
-      //this.blocks.turnAllOn()
       this.blocks.playSet("wrong")
     },500)
   } else {
@@ -174,7 +170,7 @@ Game.prototype.showStatus = function(tempString) {
   }
 }
 const game = new Game()
-// game.startGame("4321")
+game.loadLevels()
 setTimeout(() => {
   game.startLevel()
 },1000)
