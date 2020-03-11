@@ -55,7 +55,7 @@ Blocks.prototype.turnAllOff = function() {
   })
 }
 Blocks.prototype.getAudioObject = function(pitch) {
-  return new Audio(`./sound/${pitch}.wav`)
+  return new Audio(`sound/${pitch}.wav`)
 }
 Blocks.prototype.playSet = function(type) {
   let sets = this.soundSets.find( set => set.name == type ).sets
