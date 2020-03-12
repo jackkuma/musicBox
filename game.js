@@ -73,16 +73,11 @@ const Game = function() {
   this.mode = "Waiting"
 }
 //遊戲關卡設定
-//AJAX載入
-Game.prototype.loadLevels = function() {
-  let _this = this
-  const url = "https://2017.awiclass.monoame.com/api/demo/memorygame/leveldata"
-  $.ajax({
-    url: url,
-    success: function(res) {
-      _this.levels = res
-    }
-  })
+//本地模式
+Game.prototype.startLevel = function() {
+  let leveldata = this.levels[this.currentLevel]
+  this.startGame(leveldata)
+  this.showMessage("Level " + this.currentLevel)
 }
 //顯示目前關卡
 Game.prototype.showMessage = function(msg) {
