@@ -55,7 +55,7 @@ Blocks.prototype.turnAllOff = function() {
   })
 }
 Blocks.prototype.getAudioObject = function(pitch) {
-  return new Audio(`sound/${pitch}.wav`)
+  return new Audio(`https://awiclass.monoame.com/pianosound/set/${pitch}.wav`)
 }
 Blocks.prototype.playSet = function(type) {
   let sets = this.soundSets.find( set => set.name == type ).sets
@@ -165,7 +165,6 @@ Game.prototype.showStatus = function(tempString) {
   }
 }
 const game = new Game()
-game.loadLevels()
 setTimeout(() => {
   game.startLevel()
 },1000)
