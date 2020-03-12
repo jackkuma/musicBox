@@ -5,7 +5,7 @@ const blockData = [
   { selector: ".block4", name: "4", pitch: "4" }
 ]
 const soundsetDate = [
-  { name: "correct", sets: [1,3,5,8]},
+  { name: "correct", sets: [1,3,5.5,8]},
   { name: "wrong", sets: [2,4,5.5,7]}
 ]
 const levelData = [
@@ -158,6 +158,7 @@ Game.prototype.showStatus = function(tempString) {
   if(this.answer.indexOf(tempString) != 0) {
     $(".inputStatus").addClass("wrong")
     setTimeout(() => {
+      //this.blocks.turnAllOn()
       this.blocks.playSet("wrong")
     },500)
   } else {
