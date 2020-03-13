@@ -174,5 +174,5 @@ $('#play').click(function() {
 function Go() {
   setTimeout(() => {
     game.startLevel()
-  },1500)
+  },1000)
 }
