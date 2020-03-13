@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css?v1.2" />
+    <link rel="stylesheet" href="style.css?v2.1" />
 </head>
 <body>
   <div id="load">
@@ -13,8 +13,7 @@
   </div>
   <div class="infos">
     <h5>Music Box</h5>
-    <h1>Memory<br>Blocks</h1>
-    <h3 class="status">-</h3>
+    <h1>Memory<span>Blocks</span></h1>
   </div>
   <div class="blocks">
     <div class="row">
@@ -25,11 +24,11 @@
       <div class="block block3" onclick="game.userSendInput('3')"></div>
       <div class="block block4" onclick="game.userSendInput('4')"></div>
     </div>
-    <div class="row">
-      <div class="inputStatus"></div>
+    <div class="row levels">
+      <div class="inputStatus"></div><h3 class="status">-</h3>
     </div>
   </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="game.js?v1.1"></script>
+<script src="game.js?v1.2"></script>
 </html>
