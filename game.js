@@ -5,7 +5,7 @@ const blockData = [
   { selector: ".block4", name: "4", pitch: "4" }
 ]
 const soundsetDate = [
-  { name: "correct", sets: [1,3,5.5,8]},
+  { name: "correct", sets: [1,3,6,8]},
   { name: "wrong", sets: [2,4,5.5,7]}
 ]
 const levelData = [
@@ -158,7 +158,6 @@ Game.prototype.showStatus = function(tempString) {
   if(this.answer.indexOf(tempString) != 0) {
     $(".inputStatus").addClass("wrong")
     setTimeout(() => {
-      //this.blocks.turnAllOn()
       this.blocks.playSet("wrong")
     },500)
   } else {
@@ -166,6 +165,14 @@ Game.prototype.showStatus = function(tempString) {
   }
 }
 const game = new Game()
-setTimeout(() => {
-  game.startLevel()
-},1000)
+
+$('#play').click(function() {
+  $('#load').hide()
+  Go()
+})
+
+function Go() {
+  setTimeout(() => {
+    game.startLevel()
+  },1500)
+}
