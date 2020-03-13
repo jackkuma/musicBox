@@ -55,7 +55,7 @@ html:active, body:active {
   left: 40px;
   top: 40px;
 }
-.infos h1, .infos h5, .infos h3 {
+.infos h1, .infos h5 {
   margin: 5px 0;
 }
 .infos h5 {
@@ -64,18 +64,25 @@ html:active, body:active {
 .infos h1 {
   font-weight: 800;
 }
-.infos h3 {
-  font-weight: 400;
-  margin-top: 20px;
-  color: #ffe311;
+.infos h1>span{
+  display: block;
 }
 
-.blocks {
-  color: #fff;
-}
+.blocks { color: #fff;}
 .blocks .row {
   display: -webkit-box;
   display: flex;
+}
+.levels {
+  display: -webkit-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.levels h3 {
+  display: flex;
+  color: #ffe311;
+  font-weight: 400;
 }
 .blocks .block {
   width: 100px;
@@ -173,4 +180,15 @@ html:active, body:active {
 }
 .inputStatus.wrong .circle {
   background-color: #d63447;
+}
+
+@media (max-width:479px){
+  .infos {
+    left: 10px;
+    top: 10px;
+  }
+  .infos h1>span{
+    display: inline-block;
+    margin-left: 0.3em;
+  }
 }
